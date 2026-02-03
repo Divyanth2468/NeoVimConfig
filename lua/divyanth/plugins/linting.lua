@@ -24,7 +24,7 @@ return {
     })
 
     -- Manual trigger
-    vim.keymap.set("n", "<leader>lg", try_lint, {
+    vim.keymap.set("n", "<leader>gl", try_lint, {
       desc = "Run Go linting (golangci-lint)",
     })
   end,
