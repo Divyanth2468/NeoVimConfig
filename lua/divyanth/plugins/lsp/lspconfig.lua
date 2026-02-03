@@ -4,7 +4,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
-    { "folke/neodev.nvim", opts = {} },
+    { "folke/neodev.nvim",                   opts = {} },
   },
   config = function()
     local lspconfig = vim.lsp.config
@@ -53,12 +53,7 @@ return {
               params.context = { only = { "source.organizeImports" } }
 
               -- organize imports (SYNC)
-              local result = vim.lsp.buf_request_sync(
-                buf,
-                "textDocument/codeAction",
-                params,
-                1000
-              )
+              local result = vim.lsp.buf_request_sync(buf, "textDocument/codeAction", params, 1000)
 
               if result then
                 for _, res in pairs(result) do
@@ -101,12 +96,16 @@ return {
     vim.diagnostic.config({
       update_in_insert = false,
       float = { border = "rounded" },
+      virtual_text = {
+        prefix = "●",
+        spacing = 2,
+      },
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = " ",
-          [vim.diagnostic.severity.WARN]  = " ",
-          [vim.diagnostic.severity.HINT]  = " ",
-          [vim.diagnostic.severity.INFO]  = " ",
+          [vim.diagnostic.severity.WARN] = " ",
+          [vim.diagnostic.severity.HINT] = " ",
+          [vim.diagnostic.severity.INFO] = " ",
         },
       },
     })
@@ -140,4 +139,3 @@ return {
     }
   end,
 }
-
