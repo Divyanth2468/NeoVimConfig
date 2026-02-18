@@ -32,3 +32,19 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 -- split windows
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
+
+-- Auto Reload Buffers
+vim.opt.autoread = true
+vim.opt.hidden = true
+
+vim.api.nvim_create_autocmd({ "TermLeave", "BufEnter", "FocusGained" }, {
+  callback = function()
+    vim.cmd("checktime")
+  end,
+})
+
+vim.api.nvim_create_autocmd("TermEnter", {
+  callback = function()
+    vim.cmd("wall")
+  end,
+})
