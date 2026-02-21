@@ -1,5 +1,6 @@
 return {
   "folke/tokyonight.nvim",
+  enabled = false,
   priority = 1000,
   config = function()
     local bg = "#011628"
@@ -30,8 +31,8 @@ return {
         colors.fg_float = fg
         colors.fg_gutter = fg_gutter
         colors.fg_sidebar = fg_dark
-      end
+      end,
     })
     vim.cmd("colorscheme tokyonight")
-  end
+  end,
 }
