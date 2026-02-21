@@ -37,6 +37,8 @@ opt.splitbelow = true -- split horizontal window to the bottom
 vim.opt.autoread = true
 vim.opt.hidden = true
 
+vim.opt.swapfile = false
+
 vim.api.nvim_create_autocmd({ "TermLeave", "BufEnter", "FocusGained" }, {
   callback = function()
     vim.cmd("checktime")
