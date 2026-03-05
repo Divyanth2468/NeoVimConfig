@@ -12,6 +12,10 @@ return {
     local capabilities = cmp_nvim_lsp.default_capabilities()
     local keymap = vim.keymap
 
+    vim.filetype.add({
+      extension = { tmpl = "html" },
+    })
+
     ------------------------------------------------------------------
     -- LSP ATTACH (ALL BUFFER-LOCAL LOGIC LIVES HERE)
     ------------------------------------------------------------------
@@ -83,6 +87,12 @@ return {
                 filter = function(client)
                   return client.name == "lua_ls"
                 end,
+              })
+            end
+
+            if ft == "html" or ft == "tmpl" then
+              vim.lsp.buf.format({
+                async = false,
               })
             end
           end,

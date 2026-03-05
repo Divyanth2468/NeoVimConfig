@@ -54,6 +54,7 @@ return {
         "golangci-lint",
         "golangci-lint-langserver",
         "golines",
+        "djlint", -- go template / html formatter
       },
     })
   end,

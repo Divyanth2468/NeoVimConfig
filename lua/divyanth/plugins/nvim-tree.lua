@@ -53,13 +53,21 @@ return {
       },
     })
 
+    -- set line numbers to be bigger and brighter
+    vim.api.nvim_set_hl(0, "LineNr", { bold = true })
+    vim.api.nvim_set_hl(0, "CursorLineNr", { bold = true })
+
     -- set keymaps
-    local keymap = vim.keymap -- for conciseness
+    local keymap = vim.keymap                                                                   -- for conciseness
 
     keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle
-    keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer and focus on current file" }) -- highlight current file in explorer
+    keymap.set(
+      "n",
+      "<leader>ef",
+      "<cmd>NvimTreeFindFileToggle<CR>",
+      { desc = "Toggle file explorer and focus on current file" }
+    )                                                                                               -- highlight current file in explorer
     keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
-    keymap.set("n", "<leader>er", ">cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
-  end
+    keymap.set("n", "<leader>er", ">cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })   -- refresh file explorer
+  end,
 }
-
